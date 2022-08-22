@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/popup-react/static/css/main.e6c13ad2.css",
+    "main.js": "/popup-react/static/js/main.bc4b7240.js",
+    "index.html": "/popup-react/index.html",
+    "main.e6c13ad2.css.map": "/popup-react/static/css/main.e6c13ad2.css.map",
+    "main.bc4b7240.js.map": "/popup-react/static/js/main.bc4b7240.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.bc4b7240.js"
+  ]
+}
