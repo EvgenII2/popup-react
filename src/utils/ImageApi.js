@@ -1,24 +1,24 @@
 class ImageApi {
-  #domain;
-  constructor({ domain }) {
-    this.#domain = domain;
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
   }
 
   getPictures = (page = 1, limit = 10) => {
-    fetch(`${this.#domain}/v2/list?page=${page};limit=${limit}`).then(
-      (response) => {
-        return response.json();
-      }
-    );
+    return fetch(
+      `https://picsum.photos/v2/list?page=${page};limit=${limit}`
+    ).then((response) => {
+      return this._checkResponse(response);
+    });
   };
 
   getPictureInfo = (id = 0) => {
-    fetch(`https://picsum.photos/id/${id}/info`).then((response) => {
-      return response.json();
+    return fetch(`https://picsum.photos/id/${id}/info`).then((response) => {
+      return this._checkResponse(response);
     });
   };
 }
 
-const options = { domain: `https://www.picsum.photos` };
-
-export const imageApi = new ImageApi(options);
+export const imageApi = new ImageApi();
