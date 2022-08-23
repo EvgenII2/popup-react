@@ -1,16 +1,13 @@
 import "./ImageContainer.css";
+import Image from "../Image/Image";
 
 function ImageContainer({ images }) {
   return (
-    <div className='image-container'>
-      <ul className='results'>
-        {images.map((image) => (
-          <li key={image.id} className='image'>
-            <img src={image.url} alt='text' />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section className='images-container'>
+      {images.map((image) => (
+        <Image image={image} key={image.id} />
+      ))}
+    </section>
   );
 }
 

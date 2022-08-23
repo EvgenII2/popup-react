@@ -7,9 +7,15 @@ class ImageApi {
   }
 
   getPictures = (page = 1, limit = 10) => {
-    return fetch(
-      `https://picsum.photos/v2/list?page=${page};limit=${limit}`
-    ).then((response) => {
+    return fetch(`https://picsum.photos/v2/list?page=${page};limit=${limit}`, {
+      headers: new Headers({
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "application/json",
+        "Content-Type": "text/html",
+      }),
+    }).then((response) => {
       return this._checkResponse(response);
     });
   };
@@ -22,3 +28,11 @@ class ImageApi {
 }
 
 export const imageApi = new ImageApi();
+
+export function getCropImage(src, size = 2) {
+  const [domain, key, id, width, height] = src.split("/").splice(2);
+  const newWidth = Math.floor(+width / size);
+  const newHeight = Math.floor(+height / size);
+
+  return `https://${domain}/${key}/${id}/${newWidth}/${newHeight}`;
+}
