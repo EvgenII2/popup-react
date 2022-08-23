@@ -1,7 +1,21 @@
-import "./Loader.css";
+import './Loader.css';
 
-function Loader() {
-  return <div className='loader'>Loader is working</div>;
+function Loader({ isLoading }) {
+  console.log(isLoading);
+  return (
+    isLoading && (
+      <div className='loader'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    )
+  );
 }
 
 export default Loader;
