@@ -2,12 +2,16 @@ import './Image.css';
 import { getCropImage } from '../../utils/ImageApi';
 
 function Image({ image, setCurrentImage }) {
+  const onClick = (event) => {
+    event.preventDefault();
+    setCurrentImage(image);
+  };
   return (
     <a
       href={image.url}
       key={image.id}
       className='image-card__link'
-      onClick={setCurrentImage(image)}
+      onClick={onClick}
     >
       <img
         className='image-card__image'

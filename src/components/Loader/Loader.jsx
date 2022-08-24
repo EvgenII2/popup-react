@@ -1,7 +1,6 @@
 import './Loader.css';
 
 function Loader({ isLoading }) {
-  console.log(isLoading);
   return (
     isLoading && (
       <div className='loader'>
