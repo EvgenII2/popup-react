@@ -1,11 +1,15 @@
-import "./ImageContainer.css";
-import Image from "../Image/Image";
+import './ImageContainer.css';
+import Image from '../Image/Image';
 
-function ImageContainer({ images }) {
+function ImageContainer({ images, setCurrentImage }) {
   return (
     <section className='images-container'>
-      {images.map((image) => (
-        <Image image={image} key={image.id} />
+      {images.map((image, index) => (
+        <Image
+          image={image}
+          key={image.id + index}
+          setCurrentImage={setCurrentImage}
+        />
       ))}
     </section>
   );
