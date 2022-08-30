@@ -16,7 +16,7 @@ function Image({ image, setCurrentImage }) {
       <img
         className='image-card__image'
         src={getCropImage(image.download_url, 5)}
-        alt='text'
+        alt={image.author}
       />
     </a>
   );
