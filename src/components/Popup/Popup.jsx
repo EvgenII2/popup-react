@@ -18,7 +18,7 @@ function Popup({ image, setCurrentImage }) {
               alt={image.author}
             />
             <figcaption className='popup__caption'>
-              Автор: <address className='popup__author'></address>
+              Автор: <address className='popup__author'>{image.author}</address>
             </figcaption>
           </figure>
           <a

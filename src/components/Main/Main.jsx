@@ -1,10 +1,9 @@
-import Button from '../Button/Button';
 import ImageContainer from '../ImageContainer/ImageContainer';
 import Popup from '../Popup/Popup';
 import Loader from '../Loader/Loader';
 import { imageApi } from '../../utils/ImageApi';
 import './Main.css';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 function Main() {
   const [images, setImages] = useState([]);
@@ -31,7 +30,9 @@ function Main() {
 
   return (
     <div className='main'>
-      <Button clickHandler={loadImage} />
+      <button className='button-load' onClick={loadImage}>
+        Загрузить картинки
+      </button>
       <ImageContainer images={images} setCurrentImage={setCurrentImage} />
       <Popup image={currentImage} setCurrentImage={setCurrentImage} />
       <Loader isLoading={isLoading} />
